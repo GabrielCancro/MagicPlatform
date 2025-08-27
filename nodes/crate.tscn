@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvdbqq580fqxl"]
+
+[ext_resource type="Texture2D" uid="uid://brnf210gklxwy" path="res://assets/crate.png" id="1_e5ol5"]
+[ext_resource type="Script" uid="uid://cq3rk6af525k1" path="res://nodes/crate.gd" id="1_raovi"]
+[ext_resource type="Texture2D" uid="uid://baajg85hxu6rr" path="res://assets/fire_particle.png" id="3_w5v6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raovi"]
+size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_8lugk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.529412, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2wrp4"]
+curve = SubResource("Curve_8lugk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8lugk"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 74.48
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_2wrp4")
+
+[node name="Crate" type="AnimatableBody2D"]
+z_index = -1
+script = ExtResource("1_raovi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_e5ol5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_raovi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 4
+texture_filter = 1
+emitting = false
+amount = 5
+texture = ExtResource("3_w5v6k")
+process_material = SubResource("ParticleProcessMaterial_8lugk")

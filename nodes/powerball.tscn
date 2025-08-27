@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcx76yx00vr0d"]
+[gd_scene load_steps=4 format=3 uid="uid://dcx76yx00vr0d"]
 
 [ext_resource type="Script" uid="uid://wewedp2868fj" path="res://nodes/powerball.gd" id="1_jcn5s"]
 [ext_resource type="Texture2D" uid="uid://denl8ds0igqdp" path="res://assets/powerball.png" id="2_u5y5n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcn5s"]
+radius = 9.05539
 
 [node name="Powerball" type="Node2D"]
 script = ExtResource("1_jcn5s")
@@ -9,3 +12,8 @@ script = ExtResource("1_jcn5s")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_u5y5n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jcn5s")

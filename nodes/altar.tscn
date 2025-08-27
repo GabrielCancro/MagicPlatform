@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdy8kwmikuyup"]
+
+[ext_resource type="Texture2D" uid="uid://dwrnxsjieerkv" path="res://assets/statue.png" id="1_fb54i"]
+[ext_resource type="Script" uid="uid://mbnekxfcueit" path="res://nodes/altar.gd" id="1_qvjdl"]
+[ext_resource type="Texture2D" uid="uid://baajg85hxu6rr" path="res://assets/fire_particle.png" id="3_xp4r5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iafe3"]
+size = Vector2(11, 32)
+
+[node name="Altar" type="Node2D"]
+z_index = -1
+script = ExtResource("1_qvjdl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fb54i")
+
+[node name="Eyes" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-1, -12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xp4r5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Eyes"]
+texture_filter = 1
+position = Vector2(6, 0)
+texture = ExtResource("3_xp4r5")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_iafe3")

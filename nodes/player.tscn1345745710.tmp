@@ -124,7 +124,6 @@ sprite_frames = SubResource("SpriteFrames_7lbay")
 animation = &"magic"
 
 [node name="Fire" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
-visible = false
 texture_filter = 1
 position = Vector2(26, -1)
 rotation = 1.5708

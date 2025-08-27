@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://daapms5qe1b6u"]
+
+[ext_resource type="Script" uid="uid://bdnq7h5fi7bq3" path="res://nodes/jaildoor.gd" id="1_7vxfb"]
+[ext_resource type="Texture2D" uid="uid://dm0m2sgq3fsao" path="res://assets/jaildoor.png" id="1_gfspd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxfb"]
+size = Vector2(10, 32)
+
+[node name="JailDoor" type="AnimatableBody2D"]
+z_index = -1
+script = ExtResource("1_7vxfb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_gfspd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7vxfb")

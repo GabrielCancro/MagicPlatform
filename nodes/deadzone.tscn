@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://4kg80m2d4oum"]
+
+[ext_resource type="Script" uid="uid://ck8vkrsj7plno" path="res://nodes/deadzone.gd" id="1_pyf0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2mke"]
+
+[node name="DeadZone" type="Area2D"]
+script = ExtResource("1_pyf0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a2mke")
